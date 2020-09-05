@@ -1,6 +1,6 @@
 package lesson1.hierarchy;
 
-public class Rect {
+public class Rect extends Polygon {
 
     protected Double length;
     protected Double width;

@@ -16,5 +16,9 @@ public class HierarchyTest {
         Square square = new Square(5.0);
 
         assertTrue(square instanceof Rect);
+        assertTrue(square instanceof Polygon);
+        assertTrue(rect instanceof Polygon);
+        assertTrue(triangle instanceof Polygon);
+        assertTrue(square instanceof Polygon);
     }
 }

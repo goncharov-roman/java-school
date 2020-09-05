@@ -4,7 +4,7 @@ import java.util.List;
 
 import static java.lang.Math.sqrt;
 
-public class Triangle {
+public class Triangle extends Polygon {
 
     private List<Integer> sides;
 
