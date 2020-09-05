@@ -16,5 +16,7 @@ public class BinarySearchServiceTest {
         assertEquals(1, BinarySearchService.search(list, -3));
         assertEquals(4, BinarySearchService.search(list, 4));
         assertEquals(6, BinarySearchService.search(list, 10000));
+
+        assertEquals(-1, BinarySearchService.search(list, 1));
     }
 }
