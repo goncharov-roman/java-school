@@ -1,6 +1,6 @@
 package lesson1.hierarchy;
 
-public class Circle {
+public class Circle extends PlanarFigure {
 
     private Double radius;
 

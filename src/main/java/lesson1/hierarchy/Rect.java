@@ -2,6 +2,8 @@ package lesson1.hierarchy;
 
 public class Rect extends Polygon {
 
+    protected final static int NUM_OF_SIDES = 4;
+
     protected Double length;
     protected Double width;
 
@@ -28,5 +30,10 @@ public class Rect extends Polygon {
 
     public Double getSquare() {
         return width * length;
+    }
+
+    @Override
+    int getNumberOfSides() {
+        return NUM_OF_SIDES;
     }
 }

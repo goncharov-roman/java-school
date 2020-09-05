@@ -6,6 +6,8 @@ import static java.lang.Math.sqrt;
 
 public class Triangle extends Polygon {
 
+    private final static int NUM_OF_SIDES = 3;
+
     private List<Integer> sides;
 
     public Triangle(List<Integer> sides) {
@@ -28,5 +30,10 @@ public class Triangle extends Polygon {
                 * (semiperimeter - sides.get(1))
                 * (semiperimeter - sides.get(2))
         );
+    }
+
+    @Override
+    int getNumberOfSides() {
+        return NUM_OF_SIDES;
     }
 }
