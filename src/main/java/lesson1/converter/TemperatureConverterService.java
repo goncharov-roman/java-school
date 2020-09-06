@@ -9,4 +9,9 @@ public class TemperatureConverterService {
         Double fahrenheit = celsius * 1.8 + 32;
         return BigDecimal.valueOf(fahrenheit).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
+
+    public static Double convertToKelvin(Double celsius) {
+        Double kelvin = celsius + 273.15;
+        return BigDecimal.valueOf(kelvin).setScale(2, RoundingMode.HALF_UP).doubleValue();
+    }
 }

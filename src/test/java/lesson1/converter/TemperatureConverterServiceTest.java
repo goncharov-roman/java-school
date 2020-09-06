@@ -12,4 +12,10 @@ class TemperatureConverterServiceTest {
         assertEquals(23.0, TemperatureConverterService.convertToFahrenheit(-5.0));
         assertEquals(-459.67, TemperatureConverterService.convertToFahrenheit(-273.15));
     }
+
+    @Test
+    public void testConvertToKelvin() {
+        assertEquals(313.15, TemperatureConverterService.convertToKelvin(40.0));
+        assertEquals(273.15, TemperatureConverterService.convertToKelvin(0.0));
+    }
 }
