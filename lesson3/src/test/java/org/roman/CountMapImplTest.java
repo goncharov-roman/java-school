@@ -53,6 +53,8 @@ class CountMapImplTest {
         assertEquals(2, consumingMap.get(5));
         assertEquals(1, consumingMap.get(0));
         assertEquals(1, consumingMap.get(-100));
+
+        assertEquals(0, countMap.remove(1000));
     }
 
     @Test
@@ -94,5 +96,7 @@ class CountMapImplTest {
         assertEquals(3, consumingMap.get("One"));
         assertEquals(2, consumingMap.get("Two"));
         assertEquals(1, consumingMap.get("Four"));
+
+        assertEquals(0, countMap.remove("Ten"));
     }
 }
