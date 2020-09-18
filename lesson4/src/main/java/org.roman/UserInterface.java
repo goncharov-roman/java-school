@@ -1,24 +1,10 @@
 package org.roman;
 
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Класс для вывода информации пользователю
- */
-public class UserInterface {
+public interface UserInterface {
 
-    private final List<String> output;
+    List<String> getOutput();
 
-    public UserInterface() {
-        this.output = new ArrayList<>();
-    }
-
-    public List<String> getOutput() {
-        return output;
-    }
-
-    public void addToOutput(String info) {
-        output.add(info);
-    }
+    void addToOutput(String info);
 }

@@ -14,9 +14,9 @@ public class TerminalImplTest {
 
     @BeforeEach
     public void setUp() {
-        TerminalServer terminalServer = new TerminalServer(1000);
-        PinValidator pinValidator = new PinValidator("1234");
-        UserInterface userInterface = new UserInterface();
+        TerminalServer terminalServer = new TerminalServerImpl(1000);
+        PinValidator pinValidator = new PinValidatorImpl("1234");
+        UserInterface userInterface = new UserInterfaceImpl();
 
         terminal = new TerminalImpl(terminalServer, pinValidator, userInterface);
     }
