@@ -30,6 +30,7 @@
         <module>iterator_lesson6</module>
         <module>lesson7</module>
         <module>lesson8</module>
+        <module>lesson9</module>
     </modules>
 
     <dependencies>
