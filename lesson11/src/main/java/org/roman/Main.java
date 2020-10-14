@@ -61,11 +61,13 @@ public class Main {
                 () -> System.out.println("Task3"));
 
         System.out.println("Completed task = " + context.getCompletedTaskCount());
+        System.out.println("Finished = " + context.isFinished());
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("Completed task = " + context.getCompletedTaskCount());
+        System.out.println("Finished = " + context.isFinished());
     }
 }
