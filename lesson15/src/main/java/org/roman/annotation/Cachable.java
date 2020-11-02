@@ -1,4 +1,4 @@
-package org.roman;
+package org.roman.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

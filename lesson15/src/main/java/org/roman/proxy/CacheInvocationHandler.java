@@ -1,4 +1,7 @@
-package org.roman;
+package org.roman.proxy;
+
+import org.roman.annotation.Cachable;
+import org.roman.annotation.H2DB;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -31,15 +34,21 @@ public class CacheInvocationHandler implements InvocationHandler {
         int arg = (int) args[0];
 
         if (method.isAnnotationPresent(Cachable.class) && method.getAnnotation(Cachable.class).value().equals(H2DB.class)) {
-            try (Connection connection = DriverManager.getConnection("jdbc:h2:./cachedb", "sa", "");
-                 PreparedStatement statementSelect = connection.prepareStatement("SELECT result FROM cache_table WHERE arg <= ?");
+            try (Connection connection = DriverManager.getConnection("jdbc:h2:./lesson15/src/main/resources/cachedb", "sa", "");
+                 Statement statement = connection.createStatement()) {
+                statement.execute("CREATE TABLE IF NOT EXISTS cache_table(arg INTEGER, result VARCHAR);");
+            }
+            try (Connection connection = DriverManager.getConnection("jdbc:h2:./lesson15/src/main/resources/cachedb", "sa", "");
+                 PreparedStatement statementSelect = connection.prepareStatement("SELECT result FROM cache_table WHERE arg = ?");
                  PreparedStatement statementInsert = connection.prepareStatement("INSERT INTO cache_table (arg, result) VALUES (?, ?)")) {
                 statementSelect.setInt(1, arg);
                 ResultSet resultSet = statementSelect.executeQuery();
                 if (resultSet.next()) {
-                    String result = resultSet.getString(2);
+                    System.out.println("From cache");
+                    String result = resultSet.getString(1);
                     return stream(result.split(",")).map(Integer::parseInt).collect(toList());
                 } else {
+                    System.out.println("Calculated");
                     List<Integer> result = (List<Integer>) method.invoke(delegate, args);
                     String joined = result.stream().map(Object::toString).collect(joining(","));
                     statementInsert.setInt(1, arg);
