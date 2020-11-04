@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS recipe (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    photo BLOB
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS unique_recipe_name ON recipe(name);
+
+CREATE TABLE IF NOT EXISTS ingredient (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    quantity DOUBLE NOT NULL,
+    recipe_id INT NOT NULL
+);
